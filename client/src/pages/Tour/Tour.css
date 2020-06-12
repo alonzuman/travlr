@@ -1,0 +1,22 @@
+.tour-page-header {
+  display: flex;
+  direction: rtl;
+}
+
+.tour-page-header h1 {
+  font-size: 1.4rem;
+}
+
+.tour-page-header h2 {
+  text-align: center;
+}
+
+.overlapping-avatar h2, a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.tour-name-and-subtitle {
+  width: 100%;
+}

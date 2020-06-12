@@ -1,0 +1,46 @@
+.tour-card-container {
+  height: 300px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.tour-card-photo {
+  border-radius: 16px;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.tour-card-details {
+  direction: rtl;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000055;
+  padding: 8px;
+  color: var(--text-light);
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.tour-card-details h2 {
+  font-size: 1.2rem;
+}
+
+.tour-guide-details {
+  text-align: center;
+}
+
+.tour-card-title {
+  font-size: 0.7rem;
+}
+
+.tour-card-guidename {
+  font-size: 1rem;
+
+}

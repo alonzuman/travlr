@@ -1,0 +1,29 @@
+.photos-carousel-container {
+  height: 300px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.slider {
+  height: 300px!important;
+}
+ 
+.carousel-photo {
+  border-radius: 16px!important;
+  object-fit: cover;
+  height: 300px;
+}
+
+.slider-control-bottomcenter ul { 
+  width: 100%;
+  /* justify-content: space-between; */
+}
+
+.slider-control-bottomcenter li {
+  margin: 0 10px;
+}
+
+.slider-control-centerright, .slider-control-centerleft {
+  display: none;
+}

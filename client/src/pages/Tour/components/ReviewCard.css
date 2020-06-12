@@ -1,0 +1,19 @@
+.review-card-container {
+  margin-top: 8px;
+}
+
+.review-card-header {
+  display: flex;
+}
+
+.name-and-date {
+  margin: 0 8px;
+}
+
+.review-starts-container {
+  margin: 8px 0;
+}
+
+.fa-star {
+  margin: 0 2px;
+}

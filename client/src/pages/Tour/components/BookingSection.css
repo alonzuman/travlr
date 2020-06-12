@@ -1,0 +1,15 @@
+.booking-section-container {
+  direction: rtl;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 16px 0;
+}
+
+.tour-dates-intro {
+  width: 100%;
+}
+
+.booking-button {
+  width: 160px!important;
+}

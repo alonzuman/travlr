@@ -1,0 +1,22 @@
+.user-info {
+  direction: rtl;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-and-contact {
+  width: 100%;
+  text-align: center;
+  padding: 16px;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.user-stats li {
+  list-style: none;
+}
