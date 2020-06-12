@@ -115,10 +115,12 @@ button:hover {
   background-color: #00000015;
 }
 
-.icon:focus {
+/* Only for media query < 1080 */
+
+/* .icon:focus {
   background-color: #00000035;
   outline: none;
-}
+} */
 
 .rtl {
   direction: rtl;
