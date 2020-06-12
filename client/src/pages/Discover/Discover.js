@@ -10,7 +10,7 @@ export default function Discover() {
 
   const fetchTours = async () => {
     setIsLoading(true);
-    const res = await axios.get('/tours')
+    const res = await axios.get('/api/v1/tours')
     console.log(res.data)
     setIsLoading(false);
     setTours(res.data);

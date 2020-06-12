@@ -7,7 +7,7 @@ export default function Dashboard() {
   const id = 1
 
   const fetchUser = async () => {
-    const res = await axios.get(`/users/${id}`)
+    const res = await axios.get(`/api/v1/users/${id}`)
     console.log(res)
   }
 

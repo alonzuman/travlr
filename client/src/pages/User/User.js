@@ -11,7 +11,7 @@ export default function User() {
   const { id } = useParams()
   const fetchData = async () => {
     setIsLoading(true);
-    const res = await axios.get(`/users/${id}`);
+    const res = await axios.get(`/api/v1/users/${id}`);
     setIsLoading(false);
     // console.log(res.data);
     setUser(res.data);

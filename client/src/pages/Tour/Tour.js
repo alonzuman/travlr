@@ -19,7 +19,7 @@ export default function Tour() {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const res = await axios.get(`/tours/${id}`);
+    const res = await axios.get(`/api/v1/tours/${id}`);
     console.log(res.data)
     setTour(res.data.tour);
     setReviews(res.data.reviews)
