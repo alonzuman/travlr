@@ -1,12 +1,15 @@
+body {
+  margin: 0;
+  font-family: 'Assistant', sans-serif;
+  background-color: #f4f4f4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-
-body {
-  font-family: 'Assistant', sans-serif;
-  background-color: #f4f4f4;
 }
 
 :root {
@@ -111,11 +114,10 @@ button:hover {
   padding-top: 8px;
 }
 
-.icon:hover {
-  background-color: #00000015;
-}
-
 /* Only for media query < 1080 */
+/* .icon:hover {
+  background-color: #00000015;
+} */
 
 /* .icon:focus {
   background-color: #00000035;
@@ -132,4 +134,23 @@ button:hover {
 
 .subtitle {
   color: var(--text-gray);
+}
+
+input {
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  border: 1px solid var(--text-gray);
+}
+
+form {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.form-group {
+  margin-bottom: 8px;
 }

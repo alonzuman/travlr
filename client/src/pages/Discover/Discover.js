@@ -25,9 +25,7 @@ export default function Discover() {
       <Topbar />
       <div className='container'>
         {isLoading && <Spinner />}
-        {tours &&
-          tours.map(tour => <TourCard key={tour.tour_id} tour={tour} />)
-        }
+        {tours && tours.map(tour => <TourCard key={tour.tour_id} tour={tour} />)}
       </div>
     </Fragment>
   )
