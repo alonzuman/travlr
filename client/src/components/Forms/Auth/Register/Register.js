@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-export default function Register() {
+export default function Register({ setIsLogIn }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -43,7 +42,7 @@ export default function Register() {
           <button type='submit' className='primary-button'>הרשמה</button>
         </div>
       </form>
-      כבר רשומ/ה אלינו? <Link className='text-button' to='/login'>התחבר/י עכשיו!</Link>
+      כבר רשומ/ה אלינו? <button onClick={() => setIsLogIn(true)} >התחבר/י עכשיו!</button>
     </div>
   )
 }

@@ -11,11 +11,10 @@ export const login = (credentials) => dispatch => {
     const dummyToken = 123456
     localStorage.setItem('token', dummyToken)
     dispatch({ type: 'LOGIN_SUCCESS', payload: { token: dummyToken, user: dummyUser } })
+    dispatch({ type: 'CLOSE_POPUP' })
     dispatch(setAlert({ msg: 'Login successful', color: 'green' }))
-    // setTimeout(() => dispatch(clearAlert()), 3000)
   } else {
     dispatch(setAlert({ msg: 'Invalid credentials', color: 'red' }))
-    // setTimeout(() => dispatch(clearAlert()), 3000)
   }
 }
 

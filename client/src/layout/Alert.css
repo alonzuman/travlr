@@ -1,0 +1,17 @@
+.alert-container {
+  width: 100%;
+  position: fixed;
+  z-index: 9999999;
+  bottom: 120px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.alert {
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 16px;
+}

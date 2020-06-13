@@ -9,6 +9,8 @@ import TourDescription from './components/TourDescription';
 import ReviewsSection from './components/ReviewsSection';
 import Spinner from '../../components/Spinner';
 import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { openPopup } from '../../actions';
 
 export default function Tour() {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,9 +34,18 @@ export default function Tour() {
     setIsLoading(false);
   }
 
-  useEffect(() => {
-    fetchData()
-  }, [])
+  const auth = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+
+  const handleBook = () => {
+    if (!auth.isAuth) {
+      dispatch(openPopup({ popupType: 'LOGIN_POPUP' }))
+    } else {
+      dispatch(openPopup({ popupType: 'BOOKING_POPUP' }))
+    }
+  }
+
+  useEffect(() => { fetchData() }, [])
 
   return (
     <Fragment>
@@ -54,7 +65,7 @@ export default function Tour() {
                 <h2>{tour.user_first_name}</h2>
               </div>
             </div>
-            <BookingSection tour={tour} />
+            <BookingSection tour={tour} handleBook={handleBook} />
             <TourStatsBar stats={{ price: tour.price, duration: tour.duration_hours, difficulty: tour.difficulty_heb, type: tour.tour_type_heb }} />
             <TourDescription description={tour.tour_desc} />
             <ReviewsSection reviews={reviews} />

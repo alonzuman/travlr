@@ -159,3 +159,14 @@ form {
 .form-group {
   margin-bottom: 8px;
 }
+
+/* BOX SHADOW */
+.box-shadow-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999999; 
+  background-color: var(--background);
+}

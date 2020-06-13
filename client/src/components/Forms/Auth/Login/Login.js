@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../actions';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../../actions';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-export default function Login() {
+export default function Login({ setIsLogIn }) {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,7 +36,7 @@ export default function Login() {
       <div className='form-group'>
         <button className='fb-button'>התחברות באמצעות<i className="fab fa-facebook"></i></button>
       </div>
-      לא רשום? <Link className='text-button' to='/register'>הרשמ/י עכשיו!</Link>
+      לא רשום? <button onClick={() => setIsLogIn(false)} >הרשמ/י עכשיו!</button>
     </div>
   )
 }

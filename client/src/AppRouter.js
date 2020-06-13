@@ -11,7 +11,8 @@ import Tour from './pages/Tour/Tour';
 import Login from './pages/Auth/Login/Login';
 import Register from './pages/Auth/Register/Register';
 import Book from './pages/Book/Book';
-import Alerts from './layout/Alerts';
+import Alert from './layout/Alert';
+import Popup from './layout/Popup';
 
 // Redux
 import { validateLogin } from './actions';
@@ -20,6 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function AppRouter() {
   const auth = useSelector(state => state.auth);
   const alert = useSelector(state => state.alert);
+  const popup = useSelector(state => state.popup);
   const dispatch = useDispatch();
 
   useEffect(() => { dispatch(validateLogin()) }, [])
@@ -43,7 +45,8 @@ export default function AppRouter() {
         <Route path='/tours/:id' component={Tour} />
         <Route path='/users/:id' component={User} />
       </Switch>
-      {alert && <Alerts />}
+      {popup.open && <Popup />}
+      {alert && <Alert />}
       <Navbar />
     </Router>
   )
