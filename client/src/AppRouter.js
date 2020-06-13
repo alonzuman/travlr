@@ -10,14 +10,17 @@ import Settings from './pages/Settings/Settings';
 import Tour from './pages/Tour/Tour';
 import Login from './pages/Auth/Login/Login';
 import Register from './pages/Auth/Register/Register';
+import Book from './pages/Book/Book';
+import Alerts from './layout/Alerts';
 
 // Redux
 import { validateLogin } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function AppRouter() {
-  const auth = useSelector(state => state.auth)
-  const dispatch = useDispatch()
+  const auth = useSelector(state => state.auth);
+  const alert = useSelector(state => state.alert);
+  const dispatch = useDispatch();
 
   useEffect(() => { dispatch(validateLogin()) }, [])
 
@@ -31,12 +34,16 @@ export default function AppRouter() {
         <Route path='/login'>
           {auth.isAuth ? <Redirect to='/' /> : <Login />}
         </Route>
+        <Route path='/tours/:id/book'>
+          {auth.isAuth ? <Book /> : <Redirect to='/login' />}
+        </Route>
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/register' component={Register} />
         <Route path='/settings' component={Settings} />
         <Route path='/tours/:id' component={Tour} />
         <Route path='/users/:id' component={User} />
       </Switch>
+      {alert && <Alerts />}
       <Navbar />
     </Router>
   )

@@ -1,5 +1,5 @@
 const initialState = {
-  msg: {},
+  msg: null,
   color: null,
 }
 
@@ -10,9 +10,9 @@ export const alertReducer = (state = initialState, action) => {
         msg: action.payload.msg,
         color: action.payload.color,
       }
-    case 'CLEAR_ERRORS':
+    case 'CLEAR_ALERT':
       return {
-        ...initialState
+        state
       }
     default: return state
   }

@@ -54,7 +54,7 @@ export default function Tour() {
                 <h2>{tour.user_first_name}</h2>
               </div>
             </div>
-            <BookingSection />
+            <BookingSection tour={tour} />
             <TourStatsBar stats={{ price: tour.price, duration: tour.duration_hours, difficulty: tour.difficulty_heb, type: tour.tour_type_heb }} />
             <TourDescription description={tour.tour_desc} />
             <ReviewsSection reviews={reviews} />

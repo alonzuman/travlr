@@ -6,7 +6,7 @@ export default function TourCard({ tour }) {
   return (
     <Link to={`tours/${tour.tour_id}`}>
       <div className='tour-card-container'>
-        <img className='tour-card-photo' src='https://i.picsum.photos/id/451/200/300.jpg' alt={tour.tour_name} />
+        <img className='tour-card-photo' src='https://loremflickr.com/320/240' alt={tour.tour_name} />
         <div className='tour-card-details'>
           <h2>{tour.tour_name}</h2>
           <div className='tour-guide-details'>

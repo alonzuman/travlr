@@ -1,0 +1,17 @@
+.alerts-container {
+  position: absolute;
+  z-index: 999;
+  bottom: 120px;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.alert-container {
+  width: 150px;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
