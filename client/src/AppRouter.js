@@ -10,7 +10,6 @@ import Settings from './pages/Settings/Settings';
 import Tour from './pages/Tour/Tour';
 import Login from './pages/Auth/Login/Login';
 import Register from './pages/Auth/Register/Register';
-import Book from './pages/Book/Book';
 import Alert from './layout/Alert';
 import Popup from './layout/Popup';
 
