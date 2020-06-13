@@ -31,3 +31,37 @@
 .selected {
   color: var(--primary)!important;
 }
+
+/* Desktop navbar */
+
+.desktop-navbar-container {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  padding: 8px 16px;
+  background-color: var(--background);
+  box-shadow: 0px 1px 10px #00000015;
+}
+
+.desktop-navbar-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desktop-nav-group {
+  display: flex;
+}
+
+.desktop-navbar-menu li {
+  list-style: none;
+}
+
+.desktop-nav-item {
+  margin: 0 8px;
+  padding: 8px 0
+}
+
+.desktop-active {
+  color: var(--primary);
+}

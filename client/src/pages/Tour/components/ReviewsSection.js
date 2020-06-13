@@ -15,7 +15,7 @@ export default function ReviewsSection({ reviews }) {
     setAverage(Number(sum / ratings.length).toFixed(1))
   }
 
-  useEffect(() => averageRating(), [average])
+  useEffect(() => averageRating(), [])
 
   return (
     <div className='review-section-container rtl'>

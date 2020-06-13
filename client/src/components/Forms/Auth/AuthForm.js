@@ -5,7 +5,7 @@ import Register from './Register/Register';
 export default function AuthForm() {
   const [isLogIn, setIsLogIn] = useState(true);
   return (
-    <div className='container'>
+    <div className='form-container'>
       {isLogIn && <Login setIsLogIn={setIsLogIn} />}
       {!isLogIn && <Register setIsLogIn={setIsLogIn} />}
     </div>

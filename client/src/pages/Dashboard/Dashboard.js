@@ -4,6 +4,7 @@ import Topbar from '../../layout/Topbar';
 import './Dashboard.css';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/index';
+import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
   const dispatch = useDispatch()
@@ -22,7 +23,9 @@ export default function Dashboard() {
       <Topbar />
       <div className='container'>
         Dashboard
-        <button className='primary-button' onClick={() => dispatch(logout())}>Log Out</button>
+        <Link to='/'>
+          <button className='primary-button' onClick={() => dispatch(logout())}>Log Out</button>
+        </Link>
       </div>
     </Fragment>
   )

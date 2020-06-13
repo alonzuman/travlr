@@ -20,7 +20,7 @@ export default function Login({ setIsLogIn }) {
   }
 
   return (
-    <div style={style} className='container'>
+    <div style={style}>
       <form onSubmit={handleSubmit}>
         <h2>התחברות</h2>
         <div className='form-group'>

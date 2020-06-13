@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Pages & Components
-import Navbar from './layout/Navbar';
+import Navbar, { DesktopNavbar } from './layout/Navbar';
 import User from './pages/User/User';
 import Discover from './pages/Discover/Discover';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -11,12 +11,15 @@ import Tour from './pages/Tour/Tour';
 import Alert from './layout/Alert';
 import Popup from './layout/Popup';
 
+// Custom hooks
+import useWindowSize from './hooks/useWindowSize';
+
 // Redux
 import { validateLogin } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function AppRouter() {
-  const auth = useSelector(state => state.auth);
+  const size = useWindowSize();
   const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
   const dispatch = useDispatch();
@@ -34,7 +37,7 @@ export default function AppRouter() {
       </Switch>
       {popup.open && <Popup />}
       {alert && <Alert />}
-      <Navbar />
+      {size.width >= 768 ? <DesktopNavbar /> : <Navbar />}
     </Router>
   )
 }

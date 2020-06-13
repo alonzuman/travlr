@@ -20,7 +20,7 @@ export default function Register({ setIsLogIn }) {
   }
 
   return (
-    <div style={style} className='container'>
+    <div style={style}>
       <h2>הרשמה</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>

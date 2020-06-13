@@ -25,3 +25,36 @@ export default function Navbar() {
     </div>
   )
 }
+
+export const DesktopNavbar = () => {
+  const style = { direction: 'rtl' }
+
+  return (
+    <div style={style} className='desktop-navbar-container'>
+      <ul className='desktop-navbar-menu'>
+        <NavLink exact to='/' >
+          <li className='desktop-nav-item'>
+            <h3>Logo</h3>
+          </li>
+        </NavLink>
+        <div className='desktop-nav-group'>
+          <NavLink exact to='/' activeClassName='desktop-active'>
+            <li className='desktop-nav-item'>
+              דף הבית
+            </li>
+          </NavLink>
+          <NavLink to='/dashboard' activeClassName='desktop-active'>
+            <li className='desktop-nav-item'>
+              הפרופיל שלי
+            </li>
+          </NavLink>
+          <NavLink to='/settings' activeClassName='desktop-active'>
+            <li className='desktop-nav-item'>
+              הגדרות
+            </li>
+          </NavLink>
+        </div>
+      </ul>
+    </div>
+  )
+}

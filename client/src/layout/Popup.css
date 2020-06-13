@@ -5,5 +5,24 @@
   left: 0;
   bottom: 0;
   z-index: 9999999;
+  background-color: #00000050;
+}
+
+.popup-content {
+  padding: 32px;
+  margin: 0 auto;
+  height: 100vh;
   background-color: var(--background);
+}
+
+@media only screen and (min-width: 768px) {
+  .popup-container {
+    padding: 64px;
+  }
+  
+  .popup-content {
+    border-radius: 16px;
+    height: 500px;
+    max-width: 400px;
+  }
 }

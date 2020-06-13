@@ -25,7 +25,6 @@ export const logout = () => dispatch => {
 }
 
 export const validateLogin = () => {
-  console.log('validating login...')
   const token = localStorage.getItem('token');
   // Send to backend and validate
   if (token) {
