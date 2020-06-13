@@ -16,13 +16,13 @@
 }
 
 .slider-control-bottomcenter ul { 
-  width: 100%;
+  /* width: 100%; */
   /* justify-content: space-between; */
 }
 
-.slider-control-bottomcenter li {
-  margin: 0 10px;
-}
+/* .slider-control-bottomcenter li {
+  margin: 0 0px;
+} */
 
 .slider-control-centerright, .slider-control-centerleft {
   display: none;

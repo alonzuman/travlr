@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css'
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
   return (
@@ -27,7 +28,8 @@ export default function Navbar() {
 }
 
 export const DesktopNavbar = () => {
-  const style = { direction: 'rtl' }
+  const auth = useSelector(state => state.auth);
+  const style = { direction: 'rtl' };
 
   return (
     <div style={style} className='desktop-navbar-container'>
@@ -37,7 +39,7 @@ export const DesktopNavbar = () => {
             <h3>Logo</h3>
           </li>
         </NavLink>
-        <div className='desktop-nav-group'>
+        {auth.isAuth && <div className='desktop-nav-group'>
           <NavLink exact to='/' activeClassName='desktop-active'>
             <li className='desktop-nav-item'>
               דף הבית
@@ -53,7 +55,20 @@ export const DesktopNavbar = () => {
               הגדרות
             </li>
           </NavLink>
-        </div>
+        </div>}
+        {!auth.isAuth &&
+          <div className='desktop-nav-group'>
+            <NavLink to='/login' activeClassName='desktop-active'>
+              <li className='desktop-nav-item'>
+                התחברות
+              </li>
+            </NavLink>
+            <NavLink to='/register' activeClassName='desktop-active'>
+              <li className='desktop-nav-item'>
+                הרשמה
+              </li>
+            </NavLink>
+          </div>}
       </ul>
     </div>
   )

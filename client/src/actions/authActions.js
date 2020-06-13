@@ -12,16 +12,16 @@ export const login = (credentials) => dispatch => {
     localStorage.setItem('token', dummyToken)
     dispatch({ type: 'LOGIN_SUCCESS', payload: { token: dummyToken, user: dummyUser } })
     dispatch({ type: 'CLOSE_POPUP' })
-    dispatch(setAlert({ msg: 'Login successful', color: 'green' }))
+    dispatch(setAlert({ msg: 'ברוכים הבאים', color: 'green' }))
   } else {
-    dispatch(setAlert({ msg: 'Invalid credentials', color: 'red' }))
+    dispatch(setAlert({ msg: 'פרטי התחברות שגויים, אנא נסו שנית', color: 'red' }))
   }
 }
 
 export const logout = () => dispatch => {
   localStorage.removeItem('token');
   dispatch({ type: 'LOGOUT' })
-  dispatch(setAlert({ msg: 'Successfully logged out', color: 'green' }))
+  dispatch(setAlert({ msg: 'התנתקת בהצלחה', color: 'green' }))
 }
 
 export const validateLogin = () => {

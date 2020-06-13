@@ -11,7 +11,7 @@ export default function Popup() {
   return (
     <div className='popup-container'>
       <div className='popup-content'>
-        <button className='icon' onClick={() => dispatch(closePopup())}><i className="fas fa-times"></i></button>
+        <button className='round-button' onClick={() => dispatch(closePopup())}><i className="fas fa-times"></i></button>
         <PopupContent />
       </div>
     </div>

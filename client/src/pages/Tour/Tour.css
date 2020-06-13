@@ -20,3 +20,13 @@
 .tour-name-and-subtitle {
   width: 100%;
 }
+
+.tour-photos-container {
+  position: relative;
+}
+
+#leave-page-button {
+  position: absolute;
+  z-index: 99;
+  margin: 8px 0 0 8px;
+}

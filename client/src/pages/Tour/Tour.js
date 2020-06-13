@@ -8,11 +8,14 @@ import BookingSection from './components/BookingSection';
 import TourDescription from './components/TourDescription';
 import ReviewsSection from './components/ReviewsSection';
 import Spinner from '../../components/Spinner';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { openPopup } from '../../actions';
+import { openPopup, addTour } from '../../actions';
+import useWindowSize from '../../hooks/useWindowSize';
 
 export default function Tour() {
+  let history = useHistory();
+  const size = useWindowSize();
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState(null);
   const [tour, setTour] = useState(null);
@@ -41,7 +44,8 @@ export default function Tour() {
     if (!auth.isAuth) {
       dispatch(openPopup({ popupType: 'LOGIN_POPUP' }))
     } else {
-      dispatch(openPopup({ popupType: 'BOOKING_POPUP' }))
+      dispatch(openPopup({ popupType: 'BOOKING_POPUP' }));
+      dispatch(addTour(tour));
     }
   }
 
@@ -54,7 +58,10 @@ export default function Tour() {
         <Fragment>
           <Topbar left='back' />
           <div className='container'>
-            <PhotosCarousel photos={photos} />
+            <div className='tour-photos-container'>
+              {size.width >= 768 && <button id='leave-page-button' className='round-button' onClick={() => history.goBack()}><i className="fas fa-chevron-left"></i></button>}
+              <PhotosCarousel photos={photos} />
+            </div>
             <div className='tour-page-header'>
               <div className='tour-name-and-subtitle'>
                 <h1>{tour.tour_name}</h1>
