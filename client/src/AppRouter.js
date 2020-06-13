@@ -8,8 +8,6 @@ import Discover from './pages/Discover/Discover';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Settings from './pages/Settings/Settings';
 import Tour from './pages/Tour/Tour';
-import Login from './pages/Auth/Login/Login';
-import Register from './pages/Auth/Register/Register';
 import Alert from './layout/Alert';
 import Popup from './layout/Popup';
 
