@@ -27,17 +27,7 @@ export default function AppRouter() {
     <Router>
       <Switch>
         <Route path='/' exact component={Discover} />
-        <Route path='/dashboard'>
-          {auth.isAuth ? <Dashboard /> : <Redirect to='/login' />}
-        </Route>
-        <Route path='/login'>
-          {auth.isAuth ? <Redirect to='/' /> : <Login />}
-        </Route>
-        <Route path='/tours/:id/book'>
-          {auth.isAuth ? <Book /> : <Redirect to='/login' />}
-        </Route>
         <Route path='/dashboard' component={Dashboard} />
-        <Route path='/register' component={Register} />
         <Route path='/settings' component={Settings} />
         <Route path='/tours/:id' component={Tour} />
         <Route path='/users/:id' component={User} />
