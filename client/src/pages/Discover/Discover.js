@@ -13,7 +13,7 @@ export default function Discover() {
   const onLoad = async () => {
     setIsLoading(true);
     await dispatch(fetchTours());
-    setIsLoading(false);
+    if (tours) return setIsLoading(false);
   }
 
   useEffect(() => {
