@@ -2,8 +2,10 @@ import './ReviewsSection.css';
 // import ReviewsCarousel from './ReviewsCarousel';
 import ReviewCard from './ReviewCard';
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 export default function ReviewsSection({ reviews }) {
+  const locale = useSelector(state => state.locale);
   const [average, setAverage] = useState(null);
   const [reviewsOpen, setReviewsOpen] = useState(false);
 
@@ -18,13 +20,13 @@ export default function ReviewsSection({ reviews }) {
   useEffect(() => averageRating(), [])
 
   return (
-    <div className='review-section-container rtl'>
-      <b>ביקורות <span>({average > 0 && average} <i className="primary fas fa-star"></i>)</span></b>
-      {reviews.length === 0 && <div className='subtitle'>אין ביקורות על טיול זה</div>}
+    <div style={{ direction: locale.direction }} className='review-section-container'>
+      <b>{locale.translation.reviews} <span>({average > 0 && average} <i className="primary fas fa-star"></i>)</span></b>
+      {reviews.length === 0 && <div className='subtitle'>{locale.translation.noReviews}</div>}
       {reviews.length > 0 && !reviewsOpen &&
         <div className='single-review'>
           <ReviewCard review={reviews[0]} />
-          <button className='text-button' onClick={() => setReviewsOpen(true)}>הצג את כל הביקורות</button>
+          <button className='text-button' onClick={() => setReviewsOpen(true)}>{locale.translation.showAll}</button>
         </div>
       }
       {(reviews.length > 0 && reviewsOpen) &&

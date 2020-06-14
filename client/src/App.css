@@ -154,10 +154,6 @@ button:hover {
   outline: none;
 } */
 
-.rtl {
-  direction: rtl;
-}
-
 .primary {
   color: var(--primary);
 }

@@ -6,7 +6,6 @@ const getTours = async (req, res) => {
   try {
     // TODO limit fetch for 10 a time
     const tours = await pool.query('SELECT * FROM main.tours_text_v')
-    // console.log(tours.rows)
     res.json(tours.rows);
   } catch (error) {
     console.log(error);

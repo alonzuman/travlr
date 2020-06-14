@@ -29,7 +29,8 @@ export default function Navbar() {
 
 export const DesktopNavbar = () => {
   const auth = useSelector(state => state.auth);
-  const style = { direction: 'rtl' };
+  const locale = useSelector(state => state.locale)
+  const style = { direction: locale.direction };
 
   return (
     <div style={style} className='desktop-navbar-container'>
@@ -42,17 +43,17 @@ export const DesktopNavbar = () => {
         {auth.isAuth && <div className='desktop-nav-group'>
           <NavLink exact to='/' activeClassName='desktop-active'>
             <li className='desktop-nav-item'>
-              דף הבית
+              {locale.translation.homePage}
             </li>
           </NavLink>
           <NavLink to='/dashboard' activeClassName='desktop-active'>
             <li className='desktop-nav-item'>
-              הפרופיל שלי
+              {locale.translation.myProfile}
             </li>
           </NavLink>
           <NavLink to='/settings' activeClassName='desktop-active'>
             <li className='desktop-nav-item'>
-              הגדרות
+              {locale.translation.settings}
             </li>
           </NavLink>
         </div>}
@@ -60,12 +61,12 @@ export const DesktopNavbar = () => {
           <div className='desktop-nav-group'>
             <NavLink to='/login' activeClassName='desktop-active'>
               <li className='desktop-nav-item'>
-                התחברות
+                {locale.translation.login}
               </li>
             </NavLink>
             <NavLink to='/register' activeClassName='desktop-active'>
               <li className='desktop-nav-item'>
-                הרשמה
+                {locale.translation.register}
               </li>
             </NavLink>
           </div>}

@@ -2,11 +2,13 @@ import React, { useEffect, Fragment } from 'react';
 import axios from 'axios';
 import Topbar from '../../layout/Topbar';
 import './Dashboard.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/index';
 import { Link } from 'react-router-dom';
 
 export default function Dashboard() {
+  const locale = useSelector(state => state.locale);
+
   const dispatch = useDispatch();
   const fetchUser = async () => {
     const id = 1 //TODO
@@ -14,7 +16,7 @@ export default function Dashboard() {
     console.log(res);
   }
 
-  const style = { direction: 'rtl' }
+  const style = { direction: locale.direction }
 
   useEffect(() => { fetchUser() }, [])
 
@@ -22,7 +24,7 @@ export default function Dashboard() {
     <Fragment>
       <Topbar />
       <div style={style} className='container'>
-        <h1>הפרופיל שלי</h1>
+        <h1>{locale.translation.myProfile}</h1>
         <Link to='/'>
           <button className='primary-button' onClick={() => dispatch(logout())}>התנתקות</button>
         </Link>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function RegisterPage() {
+  const locale = useSelector(state => state.locale);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -11,9 +13,7 @@ export default function RegisterPage() {
     firstName, lastName, email, password1
   }
 
-  const style = {
-    direction: 'rtl'
-  }
+  const style = { direction: locale.direction }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,28 +22,28 @@ export default function RegisterPage() {
 
   return (
     <div style={style} className='container form-container'>
-      <h2>הרשמה</h2>
+      <h2>{locale.translation.register}</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
-          <input value={firstName} required placeholder='שם פרטי' type='text' onChange={e => setFirstName(e.target.value)} />
+          <input value={firstName} required placeholder={locale.translation.firstName} type='text' onChange={e => setFirstName(e.target.value)} />
         </div>
         <div className='form-group'>
-          <input value={lastName} required placeholder='שם משפחה' type='text' onChange={e => setLastName(e.target.value)} />
+          <input value={lastName} required placeholder={locale.translation.lastName} type='text' onChange={e => setLastName(e.target.value)} />
         </div>
         <div className='form-group'>
-          <input value={email} required placeholder='כתובת דוא״ל' type='email' onChange={e => setEmail(e.target.value)} />
+          <input value={email} required placeholder={locale.translation.emailAddress} type='email' onChange={e => setEmail(e.target.value)} />
         </div>
         <div className='form-group'>
-          <input value={password1} required placeholder='ססמא' type='password' onChange={e => setPassword1(e.target.value)} />
+          <input value={password1} required placeholder={locale.translation.password} type='password' onChange={e => setPassword1(e.target.value)} />
         </div>
         <div className='form-group'>
-          <input value={password2} required placeholder='אימות ססמא' type='password' onChange={e => setPassword2(e.target.value)} />
+          <input value={password2} required placeholder={locale.translation.verifyPassword} type='password' onChange={e => setPassword2(e.target.value)} />
         </div>
         <div className='form-group'>
-          <button type='submit' className='primary-button'>הרשמה</button>
+          <button type='submit' className='primary-button'>{locale.translation.register}</button>
         </div>
       </form>
-      כבר רשומ/ה אלינו? <Link to='/login'>התחבר/י עכשיו!</Link>
+      {locale.translation.alreadyRegistered}<Link className='text-button' to='/login'>{locale.translation.login}</Link>
     </div>
   )
 }

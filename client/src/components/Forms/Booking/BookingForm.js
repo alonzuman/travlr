@@ -11,7 +11,7 @@ export default function BookingForm({ tour }) {
     <div style={{ direction: locale.direction }} className='form-container'>
       <h1>{locale.translation.bookTour}</h1>
       <h3>{locale.translation.chooseDates}</h3>
-      <h3>סה״כ לתשלום</h3>
+      <h3>{locale.translation.totalPayment}</h3>
       <button className='primary-button' onClick={() => dispatch(bookTour(tour))}>{locale.translation.bookButton}</button>
     </div>
   )

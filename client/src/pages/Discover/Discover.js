@@ -2,22 +2,22 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Topbar from '../../layout/Topbar';
 import Spinner from '../../components/Spinner';
 import TourCard from '../../components/TourCard';
-import axios from 'axios';
+import { fetchTours } from '../../actions';
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Discover() {
-  const [tours, setTours] = useState([]);
+  const tours = useSelector(state => state.tours.tours)
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
 
-  const fetchTours = async () => {
+  const onLoad = async () => {
     setIsLoading(true);
-    const res = await axios.get('/api/v1/tours')
-    console.log(res.data)
+    await dispatch(fetchTours());
     setIsLoading(false);
-    setTours(res.data);
   }
 
   useEffect(() => {
-    fetchTours()
+    onLoad()
   }, [])
 
   return (

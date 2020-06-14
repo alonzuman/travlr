@@ -10,7 +10,7 @@ import ReviewsSection from './components/ReviewsSection';
 import Spinner from '../../components/Spinner';
 import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { openPopup, addTour } from '../../actions';
+import { openPopup, addTour, fetchTour } from '../../actions';
 import useWindowSize from '../../hooks/useWindowSize';
 
 export default function Tour() {
@@ -18,17 +18,15 @@ export default function Tour() {
   const size = useWindowSize();
   const [isLoading, setIsLoading] = useState(false);
   const [photos, setPhotos] = useState(null);
-  const [tour, setTour] = useState(null);
-  const [reviews, setReviews] = useState(null);
   const { id } = useParams()
+  const { tour, reviews } = useSelector(state => state.tour);
+  const auth = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+
 
   const fetchData = async () => {
     setIsLoading(true);
-    const res = await axios.get(`/api/v1/tours/${id}`);
-    console.log(res.data)
-    setTour(res.data.tour);
-    setReviews(res.data.reviews)
-    // Fetch data from cloudinary
+    dispatch(fetchTour(id));
     setPhotos([
       'https://res.cloudinary.com/demo/image/fetch/https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png',
       'https://res.cloudinary.com/demo/image/fetch/https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png',
@@ -37,8 +35,6 @@ export default function Tour() {
     setIsLoading(false);
   }
 
-  const auth = useSelector(state => state.auth);
-  const dispatch = useDispatch();
 
   const handleBook = () => {
     if (!auth.isAuth) {

@@ -1,19 +1,25 @@
 import React, { Fragment } from 'react';
 import Topbar from '../../layout/Topbar';
 import { changeLanguage } from '../../actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Settings() {
-  const style = { direction: 'rtl' }
+  const locale = useSelector(state => state.locale);
+  const style = { direction: locale.direction };
   const dispatch = useDispatch();
 
   return (
     <Fragment>
       <Topbar />
       <div style={style} className='container'>
-        <h1>הגדרות</h1>
-        <button onClick={() => dispatch(changeLanguage('heb'))}>החלף שפה</button>
-        <button onClick={() => dispatch(changeLanguage('en'))}>Switch to English</button>
+        <h1>{locale.translation.settings}</h1>
+        <div className='form-group'>
+          <button onClick={() => dispatch(changeLanguage('heb'))}>החלף לעברית</button>
+        </div>
+        <div className='form-group'>
+
+          <button onClick={() => dispatch(changeLanguage('en'))}>Switch to English</button>
+        </div>
       </div>
     </Fragment>
   )

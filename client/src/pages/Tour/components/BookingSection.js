@@ -1,14 +1,15 @@
-import React from 'react'
+import React from 'react';
 import './BookingSection.css';
-
+import { useSelector } from 'react-redux';
 
 export default function BookingSection({ handleBook }) {
+  const locale = useSelector(state => state.locale);
   return (
-    <div className='booking-section-container'>
+    <div style={{ direction: locale.direction }} className='booking-section-container'>
       <div className='tour-dates-intro'>
         תאריכים עתידיים
       </div>
-      <button onClick={handleBook} className='primary-button booking-button'>להזמנת מקום</button>
+      <button onClick={handleBook} className='primary-button booking-button'>{locale.translation.bookTour}</button>
     </div >
   )
 }
