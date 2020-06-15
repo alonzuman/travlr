@@ -27,5 +27,8 @@
   "description": "תיאור",
   "reviews": "ביקורות",
   "noReviews": "אין ביקורות על טיול זה",
-  "showAll": "הצג הכל"
+  "showAll": "הצג הכל",
+  "location": "איזור",
+  "language": "שפה",
+  "apply": "יישם"
 }

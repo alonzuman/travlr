@@ -69,6 +69,7 @@ button {
   font-family: 'Assistant', sans-serif!important;
   width: 100%;
   border: none;
+  max-width: 350px;
   border-radius: 8px;
   font-size: 1rem;
   padding: 4px;
@@ -114,6 +115,7 @@ button:hover {
 .fb-button {
   background-color: #3b5998;
   padding: 8px 16px;
+  margin: 0 auto;
   color: var(--text-light);
 }
 
@@ -175,6 +177,7 @@ input {
 form {
   margin: 0 auto;
   width: 100%;
+  max-width: 350px;
 }
 
 .form-container {

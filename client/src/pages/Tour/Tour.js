@@ -16,7 +16,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 export default function Tour() {
   let history = useHistory();
   const size = useWindowSize();
-  const [isLoading, setIsLoading] = useState(false);
+  const isLoading = useSelector(state => state.tour.isLoading);
   const [photos, setPhotos] = useState(null);
   const { id } = useParams()
   const { tour, reviews } = useSelector(state => state.tour);
@@ -25,14 +25,12 @@ export default function Tour() {
 
 
   const fetchData = async () => {
-    setIsLoading(true);
-    dispatch(fetchTour(id));
+    await dispatch(fetchTour(id));
     setPhotos([
       'https://res.cloudinary.com/demo/image/fetch/https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png',
       'https://res.cloudinary.com/demo/image/fetch/https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png',
       'https://res.cloudinary.com/demo/image/fetch/https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png'
     ])
-    setIsLoading(false);
   }
 
 

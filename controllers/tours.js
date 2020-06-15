@@ -3,6 +3,7 @@ const pool = require('../db');
 // Get all tours @public
 // GET /api/v1/tours
 const getTours = async (req, res) => {
+  console.log(req.query)
   try {
     // TODO limit fetch for 10 a time
     const tours = await pool.query('SELECT * FROM main.tours_text_v')

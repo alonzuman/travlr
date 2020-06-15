@@ -9,14 +9,14 @@ const initialState = {
 
 export const languagesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ('SWITCH_TO_HEBREW'):
+    case ('SET_HEBREW'):
       return {
         ...state,
         language: 'heb',
         translation: heb,
         direction: 'rtl'
       }
-    case ('SWITCH_TO_ENGLISH'):
+    case ('SET_ENGLISH'):
       return {
         language: 'en',
         translation: en,

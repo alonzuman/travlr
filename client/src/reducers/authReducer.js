@@ -1,20 +1,43 @@
 const initialState = {
   token: localStorage.getItem('token'),
   isAuth: false,
-  user: null
+  authInfo: null,
+  isLoading: false,
+  loginError: null,
+  logoutError: null,
+  signupError: null
 }
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_SUCCESS':
+    case 'LOGIN_REQUEST':
+    case 'REGISTER_REQUEST':
+    case 'LOGOUT_REQUEST':
       return {
-        user: action.payload.user,
-        token: action.payload.token,
-        isAuth: true
+        ...state,
+        isLoading: true
       }
-    case 'LOGOUT':
+    case 'LOGIN_SUCCESS':
+    case 'REGISTER_SUCCESS':
       return {
-        ...initialState
+        authInfo: action.payload.authInfo,
+        token: action.payload.token,
+        isAuth: true,
+        isLoading: false
+      }
+    case 'LOGOUT_SUCCESS':
+      return {
+        ...state,
+        token: null,
+        isAuth: false,
+        isLoading: false
+      }
+    case 'LOGIN_ERROR':
+    case 'REGISTER_ERROR':
+    case 'LOGOUT_ERROR':
+      return {
+        ...initialState,
+
       }
     default: return state
   }

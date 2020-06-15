@@ -19,9 +19,16 @@ export const login = (credentials) => dispatch => {
 }
 
 export const logout = () => dispatch => {
-  localStorage.removeItem('token');
-  dispatch({ type: 'LOGOUT' })
-  dispatch(setAlert({ msg: 'התנתקת בהצלחה', color: 'green' }))
+  dispatch({ type: 'LOGOUT_REQUEST' })
+  const token = localStorage.removeItem('token');
+  console.log(token)
+  if (!token) {
+    dispatch({ type: 'LOGOUT_SUCCESS' });
+    dispatch(setAlert({ msg: 'התנתקת בהצלחה', color: 'green' }));
+  } else {
+    dispatch({ type: 'LOGOUT_ERROR' });
+    dispatch(setAlert({ msg: 'שגיאה בעת ההתנתקות, אנא נסו שנית', color: 'red' }));
+  }
 }
 
 export const validateLogin = () => {

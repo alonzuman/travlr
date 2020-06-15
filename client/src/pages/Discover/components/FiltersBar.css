@@ -1,0 +1,19 @@
+.filters-bar-container {
+  margin-top: 56px;
+  position: fixed;
+  width: 100%;
+  background-color: var(--background);
+  z-index: 99;
+  box-shadow: 0px 1px 10px #00000015;
+  padding: 16px;
+  text-align: center;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.filters-grid li {
+  list-style: none;
+}

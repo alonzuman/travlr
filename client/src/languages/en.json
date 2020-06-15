@@ -27,5 +27,8 @@
   "description": "Description",
   "reviews": "Reviews",
   "noReviews": "This tour has no reviews yet",
-  "showAll": "Show all"
+  "showAll": "Show all",
+  "location": "Location",
+  "language": "Language",
+  "apply": "Apply"
 }

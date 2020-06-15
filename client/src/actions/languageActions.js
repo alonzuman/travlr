@@ -2,10 +2,10 @@ export const changeLanguage = (language) => {
   localStorage.setItem('language', language)
   switch (language) {
     case ('heb'):
-      return { type: 'SWITCH_TO_HEBREW' }
+      return { type: 'SET_HEBREW' }
     case ('en'):
-      return { type: 'SWITCH_TO_ENGLISH' }
-    default: return { type: 'SWITCH_TO_HEBREW' }
+      return { type: 'SET_ENGLISH' }
+    default: return { type: 'SET_HEBREW' }
   }
 }
 
@@ -16,9 +16,9 @@ export const checkLanguage = () => dispatch => {
   } else {
     switch (lang) {
       case 'en':
-        return dispatch({ type: 'SWITCH_TO_ENGLISH' })
+        return dispatch({ type: 'SET_ENGLISH' })
       case 'heb':
-        return dispatch({ type: 'SWITCH_TO_HEBREW' })
+        return dispatch({ type: 'SET_HEBREW' })
     }
   }
 }
